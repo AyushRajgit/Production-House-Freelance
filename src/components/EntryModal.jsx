@@ -177,7 +177,7 @@ const EntryModal = ({ isOpen, onClose }) => {
 
           {/* Privacy Notice */}
           <p className="text-xs text-gray-400 text-center mt-4">
-            Your information is secure and will only be used to enhance your experience with CineVision.
+            Your information is secure and will only be used to enhance your experience with goregaon-production.
           </p>
         </form>
       </div>
