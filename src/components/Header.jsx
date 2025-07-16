@@ -14,13 +14,21 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Smooth scroll handler
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   // Navigation menu items
   const menuItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', id: 'home' },
+    { name: 'About', id: 'about' },
+    { name: 'Portfolio', id: 'portfolio' },
+    { name: 'Services', id: 'services' },
+    { name: 'Contact', id: 'contact' },
   ];
 
   return (
@@ -38,13 +46,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
+                onClick={() => scrollToSection(item.id)}
                 className="text-white hover:text-yellow-500 transition-colors duration-200 font-medium"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
           </div>
 
@@ -61,14 +69,16 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4">
             {menuItems.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
+                onClick={() => {
+                  scrollToSection(item.id);
+                  setIsMenuOpen(false);
+                }}
                 className="block py-2 text-white hover:text-yellow-500 transition-colors duration-200"
-                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </button>
             ))}
           </div>
         )}
