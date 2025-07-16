@@ -5,3 +5,20 @@
 html {
   scroll-behavior: smooth;
 }
+
+* {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+body {
+  margin: 0px;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}

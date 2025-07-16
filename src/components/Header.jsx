@@ -5,6 +5,10 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const refreshPage = () => {
+    window.location.reload();
+  }
+
   // Handle scroll effect for header background
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +42,7 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2" onClick={refreshPage}>
             <Film className="w-8 h-8 text-yellow-500" />
             <span className="text-2xl font-bold font-serif">Goregaon&lt;/&gt;Production</span>
           </div>
