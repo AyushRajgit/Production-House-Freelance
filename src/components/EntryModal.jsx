@@ -60,6 +60,10 @@ const EntryModal = ({ isOpen, onClose }) => {
                 <p className="text-sm text-gray-300">Please provide your details to continue</p>
               </div>
             </div>
+            {/* Cross Button */}
+            <button onClick={onClose} className="text-gray-300 hover:text-white transition">
+              <X className="h-6 w-6" />
+            </button>
           </div>
         </div>
 
