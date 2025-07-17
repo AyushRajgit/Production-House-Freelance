@@ -1,38 +1,42 @@
 import React from 'react';
 import { Quote, Star } from 'lucide-react';
+import Givashu from '../assets/Clients-Image/Givashu.png';
+import Dhaagey from '../assets/Clients-Image/Dhaagey.webp';
+import AamAadmiParty from '../assets/Clients-Image/AamAadmiParty.jpg';
+import GoyalSaree from '../assets/Clients-Image/GoyalSaree.jpeg';
 
 const Testimonials = () => {
   // Testimonials data
   const testimonials = [
     {
-      name: "Alexandra Morrison",
-      role: "Marketing Director",
-      company: "Tesla",
-      image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=400",
+      name: "Givashu",
+      role: "Marketing Manager",
+      company: "Givashu Agrotech",
+      image: Givashu,
       rating: 5,
       testimonial: "Cinematic Studios transformed our product launch with a visually stunning commercial that perfectly captured our brand essence. Their attention to detail and creative vision exceeded all expectations."
     },
     {
-      name: "David Chen",
+      name: "Dhaagey",
       role: "Creative Producer",
-      company: "Netflix",
-      image: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400",
+      company: "Dhaagey Productions",
+      image: Dhaagey,
       rating: 5,
       testimonial: "Working with this team was an absolute pleasure. They delivered a documentary that not only met our technical requirements but told a compelling story that resonated with millions of viewers."
     },
     {
-      name: "Sarah Williams",
+      name: "AAP",
       role: "Brand Manager",
-      company: "Universal Music",
-      image: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400",
+      company: "Aam Aadmi Party",
+      image: AamAadmiParty,
       rating: 5,
       testimonial: "The music video they created for our artist broke all previous engagement records. Their innovative approach and flawless execution made our vision come alive in ways we never imagined."
     },
     {
-      name: "Michael Rodriguez",
+      name: "Mr. Goyal",
       role: "CEO",
-      company: "Microsoft",
-      image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=400",
+      company: "Goyal Saree Palace Private Limited",
+      image: GoyalSaree,
       rating: 5,
       testimonial: "Professional, creative, and efficient. Cinematic Studios delivered our corporate video on time and within budget while maintaining the highest production standards. Highly recommended!"
     }

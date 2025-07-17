@@ -8,112 +8,99 @@ const Portfolio = () => {
 
   // Function to convert Google Drive URL to a playable format
   const convertToPlayableUrl = (url) => {
-    if (url.includes('drive.google.com')) {
-      const fileId = url.match(/\/d\/(.*?)\//)?.[1];
-      return fileId ? `https://drive.google.com/file/d/${fileId}/preview` : url;
-    }
-    return url;
-  };
+  if (url.includes('drive.google.com')) {
+    const fileId = url.match(/\/d\/(.*?)\//)?.[1];
+    return fileId ? `https://drive.google.com/file/d/${fileId}/preview` : url;
+  } else if (url.includes('youtube.com/watch') || url.includes('youtu.be/')) {
+    let videoId = url.includes('youtube.com/watch')
+      ? new URLSearchParams(new URL(url).search).get('v')
+      : url.split('youtu.be/')[1].split(/[?&]/)[0];
+    return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
+  }
+  return url;
+};
+
 
   // Portfolio categories
   const categories = [
     { id: 'all', name: 'All Projects' },
     { id: 'documentary', name: 'Documentary' },
-    { id: 'shortcontent', name: 'Short Reels' },
-    { id: 'music-video', name: 'Music Videos' },
-    { id: 'corporate', name: 'Corporate' }
+    { id: 'shortcontent', name: 'Short Videos' },
+    { id: 'video-editing', name: 'Video Editing' },
   ];
 
   // Portfolio projects data (same as yours)
   const projects = [
     {
       id: 1,
-      title: "Stellar Dreams",
-      category: "Short Reels",
-      videoUrl: "https://drive.google.com/file/d/1et1pe2zaXNPlsZ82G2dEtXrVCqRY5Pgd/view?usp=drive_link",
-      image: "https://images.pexels.com/photos/274937/pexels-photo-274937.jpeg?auto=compress&cs=tinysrgb&w=800",
-      year: "2024",
-      client: "Tesla",
-      award: "Gold - Cannes Lions",
-      description: "Visually stunning commercial showcasing the future of electric vehicles."
-    },
-    {
-      id: 2,
-      title: "Echoes of Tomorrow",
-      category: "music-video",
-      videoUrl: "https://drive.google.com/file/d/1et1pe2zaXNPlsZ82G2dEtXrVCqRY5Pgd/view?usp=drive_link",
-      image: "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800",
-      year: "2023",
-      client: "Universal Music",
-      award: "MTV Video Music Award",
-      description: "Futuristic music video blending practical effects with cutting-edge CGI."
-    },
-    {
-      id: 3,
-      title: "Innovation Unveiled",
-      category: "corporate",
-      videoUrl: "https://drive.google.com/file/d/1et1pe2zaXNPlsZ82G2dEtXrVCqRY5Pgd/view?usp=drive_link",
-      image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800",
-      year: "2023",
-      client: "Microsoft",
-      award: null,
-      description: "Corporate video highlighting breakthrough technologies and company culture."
-    },
-    {
-      id: 4,
       title: "Ocean's Voice",
       category: "documentary",
       videoUrl: "https://drive.google.com/file/d/1e7HnBeHTAgAGiPggw1ISIylnqt9pz25Y/view?usp=drive_link",
-      image: "https://images.pexels.com/photos/1438248/pexels-photo-1438248.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/16077212/pexels-photo-16077212.jpeg",
       year: "2023",
       client: "National Geographic",
-      award: "Emmy Nomination",
       description: "Environmental documentary about ocean conservation and marine life."
     },
     {
-      id: 5,
+      id: 2,
       title: "Ocean's Voice",
       category: "documentary",
       videoUrl: "https://drive.google.com/file/d/1Ds7Rgvf_UYLJ_xc3JKNmfhkKQGag_PNI/view?usp=drive_link",
-      image: "https://images.pexels.com/photos/1438248/pexels-photo-1438248.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/17923180/pexels-photo-17923180.jpeg",
       year: "2023",
       client: "National Geographic",
-      award: "Emmy Nomination",
       description: "Environmental documentary about ocean conservation and marine life."
     },
     {
-      id: 6,
+      id: 3,
       title: "Ocean's Voice",
       category: "documentary",
       videoUrl: "https://drive.google.com/file/d/1JgETs1-o8H9It07WbOwetIW38bzHbVfI/view?usp=sharing",
-      image: "https://images.pexels.com/photos/1438248/pexels-photo-1438248.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/9716377/pexels-photo-9716377.jpeg",
       year: "2023",
       client: "National Geographic",
-      award: "Emmy Nomination",
       description: "Environmental documentary about ocean conservation and marine life."
     },
     {
-      id: 7,
+      id: 4,
       title: "Luxury Redefined",
-      category: "Short Reelsl",
+      category: "shortcontent",
       videoUrl: "https://drive.google.com/file/d/125sSgGkcIo8-mNEpHq5BJ-AskB6TfEiw/view?usp=drive_link",
-      image: "https://images.pexels.com/photos/1181280/pexels-photo-1181280.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://images.pexels.com/photos/3945317/pexels-photo-3945317.jpeg",
       year: "2022",
       client: "Rolex",
-      award: "Silver - D&AD",
       description: "Elegant commercial capturing the essence of timeless luxury and craftsmanship."
     },
     {
-      id: 8,
-      title: "Luxury Redefined",
-      category: "Short Reels",
-      videoUrl: "https://drive.google.com/file/d/125sSgGkcIo8-mNEpHq5BJ-AskB6TfEiw/view?usp=drive_link",
-      image: "https://images.pexels.com/photos/1181280/pexels-photo-1181280.jpeg?auto=compress&cs=tinysrgb&w=800",
-      year: "2022",
-      client: "Rolex",
-      award: "Silver - D&AD",
-      description: "Elegant commercial capturing the essence of timeless luxury and craftsmanship."
-    }
+      id: 5,
+      title: "Stellar Dreams",
+      category: "shortcontent",
+      videoUrl: "https://drive.google.com/file/d/1et1pe2zaXNPlsZ82G2dEtXrVCqRY5Pgd/view?usp=drive_link",
+      image: "https://images.pexels.com/photos/6844155/pexels-photo-6844155.jpeg",
+      year: "2024",
+      client: "Tesla",
+      description: "Visually stunning commercial showcasing the future of electric vehicles."
+    },
+    {
+      id: 6,
+      title: "Echoes of Tomorrow",
+      category: "video-editing",
+      videoUrl: "https://youtu.be/cM4_olzOWo0?feature=shared",
+      image: "https://static.tnn.in/thumb/msid-106713260,thumbsize-47242,width-1280,height-720,resizemode-75/106713260.jpg",
+      year: "2023",
+      client: "Universal Music",
+      description: "Futuristic music video blending practical effects with cutting-edge CGI."
+    },
+    {
+      id: 7,
+      title: "Innovation Unveiled",
+      category: "video-editing",
+      videoUrl: "https://drive.google.com/file/d/1et1pe2zaXNPlsZ82G2dEtXrVCqRY5Pgd/view?usp=drive_link",
+      image: "https://images.pexels.com/photos/17762648/pexels-photo-17762648.jpeg",
+      year: "2023",
+      client: "Microsoft",
+      description: "Corporate video highlighting breakthrough technologies and company culture."
+    },
   ];
 
   // Filter projects based on selected category
@@ -192,12 +179,10 @@ const Portfolio = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-400">Client: {project.client}</span>
-                  {project.award && (
-                    <div className="flex items-center gap-1 text-yellow-500">
-                      <Award size={16} />
-                      <span className="text-xs">{project.award}</span>
-                    </div>
-                  )}
+                  <div className="flex items-center gap-1 text-yellow-500">
+                    <Award size={16} />
+                    <span className="text-xs">Production Work</span>
+                  </div>
                 </div>
               </div>
             </div>
