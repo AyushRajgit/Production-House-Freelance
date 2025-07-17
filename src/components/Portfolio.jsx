@@ -83,12 +83,12 @@ const Portfolio = () => {
     },
     {
       id: 6,
-      title: "Echoes of Tomorrow",
+      title: "Shastri: A Cinematic Tribute",
       category: "video-editing",
       videoUrl: "https://youtu.be/cM4_olzOWo0?feature=shared",
       image: "https://static.tnn.in/thumb/msid-106713260,thumbsize-47242,width-1280,height-720,resizemode-75/106713260.jpg",
       year: "2023",
-      client: "Universal Music",
+      client: "Isomes",
       description: "Futuristic music video blending practical effects with cutting-edge CGI."
     },
     {
